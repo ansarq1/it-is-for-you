@@ -40,7 +40,7 @@
     </div>
 
     <script>
-        let messages = ["Wishing you a very happy birthday filled with love and laughter", "Happy Birthday, enjoy your day", "I love you so much", "Wala na akong maasabi, uwu"];
+        let messages = ["Wishing you a very happy birthday", "Happy Birthday, enjoy your day", "I love you so much", "Wala na akong masabi, uwu", "Work well during your special day", "Wishing you the best things", "Happy Ninday!", "Gurang na is u"];
         let images = ["image/1.jpg", "image/2.jpeg", "image/3.jpeg", "image/4.jpeg", "image/5.jpeg"]
         let card = document.getElementsByClassName("card");
         let message = document.getElementById('message');
@@ -49,14 +49,10 @@
         
         function randomMessage() {
             if (isHover === false) {
-                let randomArrayMessage = Math.floor(Math.random() * 4)
+                let randomArrayMessage = Math.floor(Math.random() * 8)
                 let randomArrayImage = Math.floor(Math.random() * 5)
                 message.innerText = messages[randomArrayMessage];
                 let image = document.getElementById('images').src = images[randomArrayImage];
-                console.log(images[randomArrayImage]);
-                console.log(messages[randomArrayMessage]);
-                
-                
                 isHover = true;
             }
         }

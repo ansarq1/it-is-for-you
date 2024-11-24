@@ -53,6 +53,10 @@ body {
   left: 50%;
 }
 
+.inside p{
+  font-size: 1rem;
+}
+
 .inside .emoji-container {
   display: flex;
   flex-direction: row;
@@ -72,6 +76,10 @@ body {
   cursor: pointer;
 }
 
+.outside p{
+  font-size: 1rem;
+}
+
 .front,
 .back {
   height: 100%;
@@ -86,7 +94,7 @@ body {
   background-color: #ffffff;
 }
 
-.front p{
+.front p {
   font-size: 1rem;
 }
 
@@ -192,6 +200,116 @@ body {
 .inside h1 {
   font-size: 80px;
   line-height: 80px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    height: 300px;
+  }
+
+  .inside h1 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  .inside .emoji-container h1 {
+    font-size: 1.5rem;
+  }
+  .outside p {
+    font-size: 18px;
+  }
+  .top-layer,
+  .middle-layer,
+  .bottom-layer {
+    height: 60px;
+    max-width: 180px;
+  }
+  .candle {
+    bottom: 145px;
+    width: 13px;
+  }
+  .candle::before{
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    height: 300px;
+  }
+  .inside h1 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .inside .emoji-container h1 {
+    font-size: 1.2rem;
+  }
+  .outside p {
+    font-size: 16px;
+  }
+  .top-layer,
+  .middle-layer,
+  .bottom-layer {
+    height: 50px;
+    max-width: 150px;
+  }
+  .candle {
+    bottom: 147px;
+  }
+
+}
+
+@media (max-width: 375px) {
+  .card {
+    height: 300px;
+  }
+  .inside h1 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .inside .emoji-container h1 {
+    font-size: 1.2rem;
+  }
+  .outside p {
+    font-size: 0.7rem;
+  }
+  .top-layer,
+  .middle-layer,
+  .bottom-layer {
+    height: 50px;
+    max-width: 150px;
+  }
+  .candle {
+    bottom: 145px;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .card {
+    height: 300px;
+  }
+  .inside p {
+    font-size: 0.8rem;
+  }
+  .inside .emoji-container h1 {
+    font-size: 1.2rem;
+  }
+  
+  .top-layer,
+  .middle-layer,
+  .bottom-layer {
+    height: 50px;
+    max-width: 150px;
+  }
+  .candle {
+    bottom: 145px;
+  }
+
+  .candle::before{
+    bottom: 40px;
+  }
+
 }
 
 @keyframes flicker {
