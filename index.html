@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Card</title>
+    <!-- Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style/styles.css" />
+  </head>
+  <body>
+    <div class="card" onmouseover="randomMessage()" onmouseleave="hoverFalse()">
+      <div class="outside">
+        <div class="front">
+          <p>Happy Birthday</p>
+          <div class="cake">
+            <div class="top-layer"></div>
+            <div class="middle-layer"></div>
+            <div class="bottom-layer"></div>
+            <div class="candle"></div>
+          </div>
+        </div>
+        <div class="back">
+            <div class="image-container">
+                <img src="image/1.jpg" alt="" id="images">
+            </div>
+        </div>
+      </div>
+      <div class="inside">
+        <p id="message"></p>
+        <div class="emoji-container">
+          <h1>&#127873;</h1>
+          <h1>&#x2665;&#xfe0f;</h1>
+        </div>
+        
+      </div>
+    </div>
+
+    <script>
+        let messages = ["Wishing you a very happy birthday filled with love and laughter", "Happy Birthday, enjoy your day", "I love you so much", "Wala na akong maasabi, uwu"];
+        let images = ["image/1.jpg", "image/2.jpeg", "image/3.jpeg", "image/4.jpeg", "image/5.jpeg"]
+        let card = document.getElementsByClassName("card");
+        let message = document.getElementById('message');
+        let isHover = false;
+        message.innerText = messages[0]
+        
+        function randomMessage() {
+            if (isHover === false) {
+                let randomArrayMessage = Math.floor(Math.random() * 4)
+                let randomArrayImage = Math.floor(Math.random() * 5)
+                message.innerText = messages[randomArrayMessage];
+                let image = document.getElementById('images').src = images[randomArrayImage];
+                console.log(images[randomArrayImage]);
+                console.log(messages[randomArrayMessage]);
+                
+                
+                isHover = true;
+            }
+        }
+        function hoverFalse() {
+            isHover = false;
+        }
+    </script>
+  </body>
+</html>
