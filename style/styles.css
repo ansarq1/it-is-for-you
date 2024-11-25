@@ -159,6 +159,7 @@ body {
 }
 
 .candle {
+  z-index: -1;
   height: 20%;
   width: 15px;
   background: repeating-linear-gradient(
