@@ -287,7 +287,7 @@ body {
 
 @media (max-width: 320px) {
   .card {
-    height: 300px;
+    height: 230px;
   }
   .inside p {
     font-size: 0.8rem;
@@ -295,22 +295,28 @@ body {
   .inside .emoji-container h1 {
     font-size: 1.2rem;
   }
-  
+
+  .cake {
+    height: 50%; /* Reduced height */
+  }
+
   .top-layer,
   .middle-layer,
   .bottom-layer {
-    height: 50px;
-    max-width: 150px;
+    height: 40px; /* Reduced height */
+    max-width: 100px; /* Smaller width */
   }
+
   .candle {
-    bottom: 145px;
+    bottom: 85px; /* Adjusted position */
+    width: 12px; /* Smaller candle width */
   }
 
-  .candle::before{
-    bottom: 40px;
+  .candle::before {
+    bottom: 30px;
   }
-
 }
+
 
 @keyframes flicker {
   0% {

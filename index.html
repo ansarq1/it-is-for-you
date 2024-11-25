@@ -4,11 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="image/birthday-cake.png" type="image/x-icon">
     <title>Happy Birthday</title>
-    <!-- Google Font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style/styles.css" />
   </head>
@@ -25,9 +22,9 @@
           </div>
         </div>
         <div class="back">
-            <div class="image-container">
-                <img src="image/1.jpg" alt="" id="images">
-            </div>
+          <div class="image-container">
+            <img src="image/1.jpg" alt="" id="images">
+          </div>
         </div>
       </div>
       <div class="inside">
@@ -36,30 +33,63 @@
           <h1>&#127873;</h1>
           <h1>&#x2665;&#xfe0f;</h1>
         </div>
-        
       </div>
     </div>
+    <audio id="hbd">
+      <source src="audio/happybday.mp3">
+    </audio>
+    <audio id="baby-hbd">
+      <source src="audio/babyhbd.mp3">
+    </audio>
+
+    <!-- Include Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 
     <script>
-        let messages = ["Wishing you a very happy birthday", "Happy Birthday, enjoy your day", "I love you so much", "Wala na akong masabi, uwu", "Work well during your special day", "Wishing you the best things", "Happy Ninday!", "Gurang na is u"];
-        let images = ["image/1.jpg", "image/2.jpeg", "image/3.jpeg", "image/4.jpeg", "image/5.jpeg"]
-        let card = document.getElementsByClassName("card");
-        let message = document.getElementById('message');
-        let isHover = false;
-        message.innerText = messages[0]
-        
-        function randomMessage() {
-            if (isHover === false) {
-                let randomArrayMessage = Math.floor(Math.random() * 8)
-                let randomArrayImage = Math.floor(Math.random() * 5)
-                message.innerText = messages[randomArrayMessage];
-                let image = document.getElementById('images').src = images[randomArrayImage];
-                isHover = true;
-            }
+      let messages = ["Wishing you a very happy birthday", "Happy Birthday, enjoy your day", "I love you so much", "Wala na akong masabi, uwu", "Work well during your special day", "Wishing you the best things", "Happy Ninday!", "Gurang na is u"];
+      let images = ["image/1.jpg", "image/2.jpeg", "image/3.jpeg", "image/4.jpeg", "image/5.jpeg"];
+      let message = document.getElementById('message');
+      let isHover = false;
+      let firstSong = document.getElementById('hbd');
+      let secondSong = document.getElementById('baby-hbd');
+      let audios = [firstSong, secondSong];
+      firstSong.volume = 1;
+      secondSong.volume = 1;
+      message.innerText = messages[0];
+
+      window.onload = function() {
+        confetti({
+          particleCount: 200,
+          spread: 100,
+          origin: { y: 0.6 }
+        });
+      };
+
+      function randomMessage() {
+        if (!isHover) {
+          let randomArrayMessage = Math.floor(Math.random() * messages.length);
+          let randomArrayImage = Math.floor(Math.random() * images.length);
+          let randomAudio = Math.floor(Math.random() * audios.length);
+          message.innerText = messages[randomArrayMessage];
+          document.getElementById('images').src = images[randomArrayImage];
+          audios[randomAudio].play();
+          isHover = true;
+
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
         }
-        function hoverFalse() {
-            isHover = false;
-        }
+      }
+
+      function hoverFalse() {
+        audios.forEach(audio => {
+          audio.pause();         
+          audio.currentTime = 0;  
+        });
+        isHover = false;
+      }
     </script>
   </body>
 </html>
